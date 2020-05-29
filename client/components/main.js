@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { history } from '../redux'
+import './main.scss'
 
 const Main = () => {
   const [userLogin, setUserLogin] = useState('')
@@ -9,8 +10,8 @@ const Main = () => {
     }
   }
   return (
-    <div>
-      <div className="my-56 py-30 ">
+    <div className="h-screen main  flex">
+      <div className="m-auto bg-teal-200 p-10 rounded opacity-100">
         <div className="flex items-center justify-center   ">
           <img
             className="h-10 w-10  rounded-lg  my-2 "
@@ -19,14 +20,14 @@ const Main = () => {
           />
         </div>
         <div className="flex items-center justify-center ">
-          <div className="font-bold text-2xl">Users repository search</div>
+          <div className="font-bold text-2xl text-red">Search for github users</div>
         </div>
         <form className=" flex items-center justify-center py-10">
           <div className="flex items-center border-b border-b-2 border-teal-500 py-2">
             <input
               className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
               type="text"
-              placeholder="Search..."
+              placeholder="login..."
               onChange={(e) => setUserLogin(e.target.value)}
               onKeyDown={handleSearch}
               value={userLogin}
@@ -36,7 +37,7 @@ const Main = () => {
               type="button"
               onClick={() => history.push(`/${userLogin}`)}
             >
-              Search repositories
+              Search user
             </button>
           </div>
         </form>

@@ -13,6 +13,7 @@ import DummyView from '../components/dummy-view'
 import NotFound from '../components/404'
 
 import Startup from './startup'
+import Main from '../components/main'
 
 const OnlyAnonymousRoute = ({ component: Component, ...rest }) => {
   const func = (props) =>
@@ -82,7 +83,7 @@ export default (props) => {
       <ConnectedRouter history={history} location={props.location} context={props.context}>
         <StartupConnected>
           <Switch>
-            <Route exact path="/" component={() => <Home />} />
+            <Route exact path="/" component={() => <Main />} />
             <Route exact path="/:userName" component={() => <Home />} />
             <Route exact path="/:userName/:userRepos" component={() => <Home />} />
             <PrivateRouteConnected exact path="/hidden-route" component={() => <DummyView />} />
